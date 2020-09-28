@@ -1,6 +1,7 @@
 package com.dev.Scamboo.controle;
 
 import com.dev.Scamboo.modelos.Funcionario;
+import com.dev.Scamboo.repositorios.CidadeRepositorio;
 import com.dev.Scamboo.repositorios.FuncionarioRepositorio;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +24,14 @@ public class FuncionarioControle {
 	@Autowired
 	private FuncionarioRepositorio funcionarioRepositorio;
 
+	@Autowired
+	private CidadeRepositorio cidadeRepositorio;
+
 	@GetMapping("/cadastrar")
 	public ModelAndView cadastrar(Funcionario funcionario) {
 		ModelAndView mv = new ModelAndView("administrativo/funcionarios/cadastro");
 		mv.addObject("funcionario",funcionario);
+		mv.addObject("listaCidades",cidadeRepositorio.findAll());
 		return mv;
 	}
 	
