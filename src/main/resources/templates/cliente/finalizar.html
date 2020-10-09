@@ -4,7 +4,7 @@
 
 <head>
 
-  <title>Scamboo</title>
+  <title>Finalizar Compra</title>
 
 </head>
 
@@ -14,6 +14,19 @@
   <div class="container" layout:fragment="corpo">
 
     <div class="row">
+      <div class="col-12">
+        <h1>Inf do cliente</h1>
+      </div>
+
+      <div class="col-6">
+        <select class="form-control">
+          <option value="Cartão de crédito">Cartão de crédito</option>
+          <option value="Cartão de débito">Cartão de débito</option>
+          <option value="Boleto">Boleto</option>
+          <option value="Transferência">Transferência</option>
+        </select>
+      </div>
+
       <div class="col-12">
         <div class="table-responsive">
           <table class="table table-striped">
@@ -32,15 +45,11 @@
               <td ><img src="https://dummyimage.com/50x50/55595c/fff" /></td>
               <td th:text="${item.produto.descricao}"></td>
               <td>In stock</td>
-              <td ><span th:text="${item.quantidade}"></span>&nbsp; &nbsp;
-                <a class="btn btn-sm btn-primary" th:href="@{/alterarQuantidade/{id}/{acao}(id=${item.produto.id},acao=${1})}" role="button"><i class="fa fa-plus"></i></a>
-                &nbsp; &nbsp;
-                <a class="btn btn-sm btn-primary" th:href="@{/alterarQuantidade/{id}/{acao}(id=${item.produto.id},acao=${0})}" role="button"><i class="fa fa-minus"></i></a>
+              <td ><span th:text="${item.quantidade}"></span>
               </td>
               <td class="text-right" th:text="${item.valorTotal}"></td>
 
               <td class="text-right">
-                <a class="btn btn-sm btn-danger" th:href="@{/removerProduto/{id}(id=${item.produto.id})}" role="button"><i class="fa fa-trash"></i></a>
 
               </td>
             </tr>
@@ -76,11 +85,9 @@
       <div class="col mb-2">
         <div class="row">
           <div class="col-sm-12  col-md-6">
-            <a class="btn btn-lg btn-block btn-light " href="/" role="button">Continue Comprando</i></a>
-            <button class="btn btn-block btn-light">Continue Comprando</button>
           </div>
           <div class="col-sm-12 col-md-6 text-right">
-            <a class="btn btn-lg btn-block btn-success text-uppercase" th:href="finalizar" role="button">Finalizar compra</i></a>
+            <button class="btn btn-lg btn-block btn-success text-uppercase">Comprar</button>
           </div>
         </div>
       </div>
